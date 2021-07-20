@@ -1,1 +1,7 @@
 theme: jekyll-theme-minimal
+title                    : "COVID19 trend abnormally" 
+repository               : " " 
+search                   : true 
+search_full_content      : true 
+author:
+  github : "PAHO-ghe" 
