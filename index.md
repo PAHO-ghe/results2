@@ -284,7 +284,7 @@ res_overall$results
 
 
  
-
+This result and method was forked from https://github.com/reconhub/trendbreaker and modified to apply PAHO regional data. 
 
 ######housekeeping matters
 [repository settings](https://github.com/PAHO-ghe/results2/settings/pages) & `_config.yml` 
