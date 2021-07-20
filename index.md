@@ -5,6 +5,10 @@
 
 This function (forked from github trendbreaker) implements an algorithm for epidemic time series analysis in aim to detect recent deviation from the trend followed by the data. Data is first partitioned into 'recent' data, using the last k observations as supplementary individuals, and older data used to fit the trend. Trend-fitting is done by fitting a series of user-specified models for the time series, with different methods for selecting best fit (see details, and the argument method). The prediction interval is then calculated for the best model, and every data point (including the training set and supplementary individuals) falling outside are classified as 'outliers'. The value of k can be fixed by the user, or automatically selected to minimise outliers in the training period and maximise and the detection of outliers in the recent period.
 
+<em>"Our approach relies on automatically selecting the best (fitting or predicting) model from a range of user-defined time series models, excluding the most recent data points, to characterize the main trend in an incidence. We then derive prediction intervals and classify data points outside this interval as outliers, which provides an objective criterion for identifying departures from previous trends. We also provide a method for selecting the optimal breakpoints, used to define how many recent data points are to be excluded from the trend fitting procedure."</em>
+
+Automatic selection of models and outlier detection for epidemics. [ASMODEE](https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0266)
+
 ``` r
 setwd("./")
 GHE_PAHO<-read.csv("./GHE_PAHO.csv")
@@ -85,18 +89,14 @@ models <- list(
 counts_overall <- pathways_recent %>%group_by(date, day, weekday) %>%summarise(count = sum(count))
 ```
 
-    ## `summarise()` has grouped output by 'date', 'day'. You can override using the `.groups` argument.
+
 
 ``` r
 res_overall <- asmodee(counts_overall,models,"date",method = evaluate_aic)
 res_overall$fitted_model
 ```
 
-    ## NULL
 
-``` r
-res_overall$results
-```
 |	date        | day          | training	| estimate  | lower_ci | upper_ci	|	lower_pi  | upper_pi |	outlier	|	classification |
 |	----------- |	-------------- | ------ | ---------- | -------- | -------- | --------- | --------- | --------- |-----------------|
 |	2021-01-01 	|	 weekday count	|	TRUE	|	  2579.499 | 2189.247 | 3039.317	|	1642	|	3755	|	  FALSE 	|	        normal	|
@@ -167,11 +167,9 @@ res_overall <- asmodee(counts_overall,models,"date",method = evaluate_aic)
 res_overall$fitted_model
 ```
 
-    ## NULL
 
-``` r
-res_overall$results
-```
+
+
 
 |	      date 	|	     weekday 	|	count |	training 	|	estimate 	|	 lower_ci |	upper_ci	|	lower_pi |	upper_pi |	outlier	|	classification	|
 | ----------- | ------------ | ------ | ---------- | ---------- | ---------- | ---------- | -------- | ---------- | -------- | --------------- |
