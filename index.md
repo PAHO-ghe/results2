@@ -1,9 +1,9 @@
 # COVID19 outbreak anormaly detection 
 
 
-## 1.Check ASMODEE in GHE\_PAHO
+## 1.Check COVID19 trend abnormality in PAHO countries
 
-This function implements an algorithm for epidemic time series analysis in aim to detect recent deviation from the trend followed by the data. Data is first partitioned into 'recent' data, using the last k observations as supplementary individuals, and older data used to fit the trend. Trend-fitting is done by fitting a series of user-specified models for the time series, with different methods for selecting best fit (see details, and the argument method). The prediction interval is then calculated for the best model, and every data point (including the training set and supplementary individuals) falling outside are classified as 'outliers'. The value of k can be fixed by the user, or automatically selected to minimise outliers in the training period and maximise and the detection of outliers in the recent period.
+This function (forked from github trendbreaker) implements an algorithm for epidemic time series analysis in aim to detect recent deviation from the trend followed by the data. Data is first partitioned into 'recent' data, using the last k observations as supplementary individuals, and older data used to fit the trend. Trend-fitting is done by fitting a series of user-specified models for the time series, with different methods for selecting best fit (see details, and the argument method). The prediction interval is then calculated for the best model, and every data point (including the training set and supplementary individuals) falling outside are classified as 'outliers'. The value of k can be fixed by the user, or automatically selected to minimise outliers in the training period and maximise and the detection of outliers in the recent period.
 
 ``` r
 setwd("./")
@@ -16,7 +16,7 @@ names(GHE_PAHO_NDeaths)[3]    <- "dths"
 #load(GHE_PAHO_NDeaths, file = "./GHE_PAHO_NDeaths.RData")
 ```
 
-## 2.Prep the ASMODEE module
+## 2.Prep the module
 
 ``` r
 GHE_PAHO_NDeaths$year <- as.Date(GHE_PAHO_NDeaths$year, format = "%Y")
@@ -30,7 +30,6 @@ models <- list(
   regression = lm_model(dhts ~ year), 
   poisson_constant = glm_model(dhts ~ year, family = "poisson"),
   negbin_time = glm_nb_model(dhts ~ year) #negative binomial generalied linear models
-  
 )
 
 # analyses on all data
@@ -98,8 +97,8 @@ res_overall$fitted_model
 ``` r
 res_overall$results
 ```
-|	date | day | training	| estimate | lower_ci | upper_ci	|	lower_pi | upper_pi |	outlier	|	classification |
-|	----------- |	-----------	|	---------	|	----------| --------|	--------	|	---------	|	---------	|	---------	|-----------------|
+|	date        | day          | training	| estimate  | lower_ci | upper_ci	|	lower_pi  | upper_pi |	outlier	|	classification |
+|	----------- |	-------------- | ------ | ---------- | -------- | -------- | --------- | --------- | --------- |-----------------|
 |	2021-01-01 	|	 weekday count	|	TRUE	|	  2579.499 | 2189.247 | 3039.317	|	1642	|	3755	|	  FALSE 	|	        normal	|
 |	2021-01-02 	|	rest_of_week  	|	TRUE	|	  1783.453 | 1504.439 | 2114.213	|	1120	|	2529	|	  FALSE 	|	        normal	|
 |	2021-01-03 	|	     weekend  	|	TRUE	|	  1819.393 | 1542.320 | 2146.242	|	1143	|	2629	|	  FALSE 	|	        normal	|
@@ -134,7 +133,7 @@ res_overall$results
 
 ![unnamed-chunk-4-1](https://user-images.githubusercontent.com/81782228/126196259-a16feb74-7c61-42ce-baf4-543235493a1d.png)
 
-## 4. PAHO region COVID19 death trend in last 100 days since the latested reported date (2021-01-29)
+## 4. PAHO region COVID19 death trend in last 100 days since the last reported date (2021-01-29)
 
 ``` r
 # try with wider range
