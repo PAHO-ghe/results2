@@ -129,7 +129,7 @@ res_overall$results
 |	2021-01-27 	|	rest_of_week  	|	TRUE	|	 4333.346 | 3782.713 | 4964.132	  |	2870	|	6294	|	  FALSE 	|	        normal	|
 |	2021-01-28 	|	rest_of_week  	|	TRUE	|	 4420.672 | 3834.169 | 5096.891	  |	2809	|	6532	|	  FALSE 	|	        normal	|
 |	2021-01-29 	|	rest_of_week  	|	TRUE	|	  4509.758 | 3885.361 | 5234.497	  |	2940	|	6532	|	  FALSE 	|	        normal	|
-|
+
 
 
 ![unnamed-chunk-4-1](https://user-images.githubusercontent.com/81782228/126196259-a16feb74-7c61-42ce-baf4-543235493a1d.png)
