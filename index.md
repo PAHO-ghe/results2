@@ -1,7 +1,7 @@
-# COVID19 outbreak anormaly detection 
+# COVID19 trend anormally detection 
 
 
-## 1.Check COVID19 trend abnormality in PAHO countries
+## 1.Check COVID19 trend anormally in PAHO countries
 
 This function (forked from github trendbreaker) implements an algorithm for epidemic time series analysis in aim to detect recent deviation from the trend followed by the data. Data is first partitioned into 'recent' data, using the last k observations as supplementary individuals, and older data used to fit the trend. Trend-fitting is done by fitting a series of user-specified models for the time series, with different methods for selecting best fit (see details, and the argument method). The prediction interval is then calculated for the best model, and every data point (including the training set and supplementary individuals) falling outside are classified as 'outliers'. The value of k can be fixed by the user, or automatically selected to minimise outliers in the training period and maximise and the detection of outliers in the recent period.
 
@@ -284,7 +284,4 @@ res_overall$results
 
  
 This result and method was forked from https://github.com/reconhub/trendbreaker and modified to apply PAHO regional data. 
-
-######housekeeping matters
-[repository settings](https://github.com/PAHO-ghe/results2/settings/pages) & `_config.yml` 
 
