@@ -51,7 +51,7 @@ counts_overall <- pathways_recent %>%
 # get data
 data("coronavirus")
 
-Country_codes     <- readxl::read_excel("/Users/DHY 1/Documents/GitHub/GHEdataset/DB/Catalogs/Country_codes_ISO_3166.xlsx")
+Country_codes     <- readxl::read_excel("./Country_codes_ISO_3166.xlsx")
 Country_codes<-Country_codes%>%select(nom.eng,Continent)%>%filter(Continent=="Americas")
 df_paho<-merge(coronavirus, Country_codes, by.x="country", by.y="nom.eng")
 
@@ -100,35 +100,35 @@ res_overall$results
 ```
 |	date | day | training	| estimate | lower_ci | upper_ci	|	lower_pi | upper_pi |	outlier	|	classification |
 |	----------- |	-----------	|	---------	|	----------| --------|	--------	|	---------	|	---------	|	---------	|-----------------|
-|	2021-01-01 	|	 weekday count	|	TRUE	|	  2579.499| 2189.247 |3039.317	|	1642	|	3755	|	  FALSE 	|	        normal	|
-|	2021-01-02 	|	rest_of_week  	|	TRUE	|	  1783.453| 1504.439| 2114.213	|	1120	|	2529	|	  FALSE 	|	        normal	|
-|	2021-01-03 	|	     weekend  	|	TRUE	|	  1819.393| 1542.320| 2146.242	|	1143	|	2629	|	  FALSE 	|	        normal	|
-|	2021-01-04 	|	     weekend  	|	TRUE	|	 1734.652 |1394.785 |2157.336	  |	1106	|	2610	|	  FALSE 	|	        normal	|
-|	2021-01-05 	|	      monday  	|	TRUE	|	 2793.798 | 2436.622| 3203.332	|	1814	|	3969	|	  FALSE 	|	        normal	|
-|	2021-01-06 	|	rest_of_week  	|	TRUE	|	 2850.099 |2501.180 |3247.693	  |	1871	|	4081	|	  FALSE 	|	        normal	|
-|	2021-01-07 	|	rest_of_week  	|	TRUE	|	  2907.535| 2566.625|3293.726	  |	1900	|	4226	|	  FALSE 	|	        normal	|
-|	2021-01-08 	|	rest_of_week  	|	TRUE	|	 2966.128 |2632.812 |3341.641	  |	1942	|	4352	|	  FALSE 	|	        normal	|
-|	2021-01-09 	|	rest_of_week  	|	TRUE	|	 2050.766 |1775.975 |2368.075	  |	1307	|	2968	|	TRUE    	|	      increase	|
-|	2021-01-10 	|	     weekend  	|	TRUE	|	 2092.093 |1815.262 |2411.142	  |	1349	|	2988	|	  FALSE 	|	        normal	|
-|	2021-01-11 	|	     weekend  	|	TRUE	|	 1994.651 |1633.681 |2435.379	  |	1250	|	3036	|	  FALSE 	|	        normal	|
-|	2021-01-12 	|	      monday  	|	TRUE	|	 3212.547 | 2901.043| 3557.500	|	2062	|	4463	|	  FALSE 	|	        normal	|
-|	2021-01-13 	|	rest_of_week  	|	TRUE	|	 3277.287 |2967.750|3619.108  	|	2147	|	4750	|	  FALSE 	|	        normal	|
-|	2021-01-14 	|	rest_of_week  	|	TRUE	|	  3343.331|3033.776|3684.471  	|	2220	|	4694	|	  FALSE 	|	        normal	|
-|	2021-01-15 	|	rest_of_week  	|	TRUE	|	 3410.706 |3098.863| 3753.930  	|	2235	|	4814	|	  FALSE 	|	        normal	|
-|	2021-01-16 	|	rest_of_week  	|	TRUE	|	 2358.145 |2046.212| 2717.631	  |	1505	|	3453	|	  FALSE 	|	        normal	|
-|	2021-01-17 	|	     weekend  	|	TRUE	|	  2405.667|2083.459| 2777.704	  |	1567	|	3480	|	  FALSE 	|	        normal	|
-|	2021-01-18 	|	     weekend  	|	TRUE	|	 2293.619 |1878.626| 2800.285	  |	1452	|	3325	|	  FALSE 	|	        normal	|
-|	2021-01-19 	|	      monday  	|	TRUE	|	  3694.060|3346.279|4077.987	  |	2406	|	5371	|	  FALSE 	|	        normal	|
-|	2021-01-20 	|	rest_of_week  	|	TRUE	|	 3768.503 |3404.568| 4171.342	  |	2455	|	5461	|	  FALSE 	|	        normal	|
-|	2021-01-21 	|	rest_of_week  	|	TRUE	|	 3844.447 |3461.515|4269.740	  |	2552	|	5537	|	  FALSE 	|	        normal	|
-|	2021-01-22 	|	rest_of_week  	|	TRUE	|	 3921.920 |3517.241|4373.160	  |	2527	|	5540	|	  FALSE 	|	        normal	|
-|	2021-01-23 	|	rest_of_week  	|	TRUE	|	 2711.596 |2298.981|3198.266	  |	1782	|	3999	|	  FALSE 	|	        normal	|
-|	2021-01-24 	|	     weekend  	|	TRUE	|	 2766.240 |2333.832|3278.765	  |	1771	|	4039	|	  FALSE 	|	        normal	|
-|	2021-01-25 	|	     weekend  	|	TRUE	|	 2637.399 |2120.909| 3279.666	  |	1607	|	3950	|	  FALSE 	|	        normal	|
-|	2021-01-26 	|	      monday  	|	TRUE	|	 4247.745 |3730.885|4836.208	  |	2794	|	6229	|	  FALSE 	|	        normal	|
-|	2021-01-27 	|	rest_of_week  	|	TRUE	|	 4333.346 |3782.713|4964.132	  |	2870	|	6294	|	  FALSE 	|	        normal	|
-|	2021-01-28 	|	rest_of_week  	|	TRUE	|	 4420.672 |3834.169|5096.891	  |	2809	|	6532	|	  FALSE 	|	        normal	|
-|	2021-01-29 	|	rest_of_week  	|	TRUE	|	  4509.758|3885.361|5234.497	  |	2940	|	6532	|	  FALSE 	|	        normal	|
+|	2021-01-01 	|	 weekday count	|	TRUE	|	  2579.499 | 2189.247 | 3039.317	|	1642	|	3755	|	  FALSE 	|	        normal	|
+|	2021-01-02 	|	rest_of_week  	|	TRUE	|	  1783.453 | 1504.439 | 2114.213	|	1120	|	2529	|	  FALSE 	|	        normal	|
+|	2021-01-03 	|	     weekend  	|	TRUE	|	  1819.393 | 1542.320 | 2146.242	|	1143	|	2629	|	  FALSE 	|	        normal	|
+|	2021-01-04 	|	     weekend  	|	TRUE	|	 1734.652 |1394.785 | 2157.336	  |	1106	|	2610	|	  FALSE 	|	        normal	|
+|	2021-01-05 	|	      monday  	|	TRUE	|	 2793.798 | 2436.622 | 3203.332	|	1814	|	3969	|	  FALSE 	|	        normal	|
+|	2021-01-06 	|	rest_of_week  	|	TRUE	|	 2850.099 |2501.180 | 3247.693	  |	1871	|	4081	|	  FALSE 	|	        normal	|
+|	2021-01-07 	|	rest_of_week  	|	TRUE	|	  2907.535 | 2566.625 | 3293.726	  |	1900	|	4226	|	  FALSE 	|	        normal	|
+|	2021-01-08 	|	rest_of_week  	|	TRUE	|	 2966.128 |2632.812 | 3341.641	  |	1942	|	4352	|	  FALSE 	|	        normal	|
+|	2021-01-09 	|	rest_of_week  	|	TRUE	|	 2050.766 |1775.975 | 2368.075	  |	1307	|	2968	|	TRUE    	|	      increase	|
+|	2021-01-10 	|	     weekend  	|	TRUE	|	 2092.093 |1815.262 | 2411.142	  |	1349	|	2988	|	  FALSE 	|	        normal	|
+|	2021-01-11 	|	     weekend  	|	TRUE	|	 1994.651 |1633.681 | 2435.379	  |	1250	|	3036	|	  FALSE 	|	        normal	|
+|	2021-01-12 	|	      monday  	|	TRUE	|	 3212.547 | 2901.043 | 3557.500	|	2062	|	4463	|	  FALSE 	|	        normal	|
+|	2021-01-13 	|	rest_of_week  	|	TRUE	|	 3277.287 | 2967.750 | 3619.108  	|	2147	|	4750	|	  FALSE 	|	        normal	|
+|	2021-01-14 	|	rest_of_week  	|	TRUE	|	  3343.331 | 3033.776 | 3684.471  	|	2220	|	4694	|	  FALSE 	|	        normal	|
+|	2021-01-15 	|	rest_of_week  	|	TRUE	|	 3410.706 | 3098.863 | 3753.930  	|	2235	|	4814	|	  FALSE 	|	        normal	|
+|	2021-01-16 	|	rest_of_week  	|	TRUE	|	 2358.145 | 2046.212 | 2717.631	  |	1505	|	3453	|	  FALSE 	|	        normal	|
+|	2021-01-17 	|	     weekend  	|	TRUE	|	  2405.667 | 2083.459 | 2777.704	  |	1567	|	3480	|	  FALSE 	|	        normal	|
+|	2021-01-18 	|	     weekend  	|	TRUE	|	 2293.619 | 1878.626 | 2800.285	  |	1452	|	3325	|	  FALSE 	|	        normal	|
+|	2021-01-19 	|	      monday  	|	TRUE	|	  3694.060 | 3346.279 | 4077.987	  |	2406	|	5371	|	  FALSE 	|	        normal	|
+|	2021-01-20 	|	rest_of_week  	|	TRUE	|	 3768.503 | 3404.568 | 4171.342	  |	2455	|	5461	|	  FALSE 	|	        normal	|
+|	2021-01-21 	|	rest_of_week  	|	TRUE	|	 3844.447 | 3461.515 | 4269.740	  |	2552	|	5537	|	  FALSE 	|	        normal	|
+|	2021-01-22 	|	rest_of_week  	|	TRUE	|	 3921.920 | 3517.241 | 4373.160	  |	2527	|	5540	|	  FALSE 	|	        normal	|
+|	2021-01-23 	|	rest_of_week  	|	TRUE	|	 2711.596 | 2298.981 | 3198.266	  |	1782	|	3999	|	  FALSE 	|	        normal	|
+|	2021-01-24 	|	     weekend  	|	TRUE	|	 2766.240 | 2333.832 | 3278.765	  |	1771	|	4039	|	  FALSE 	|	        normal	|
+|	2021-01-25 	|	     weekend  	|	TRUE	|	 2637.399 | 2120.909 | 3279.666	  |	1607	|	3950	|	  FALSE 	|	        normal	|
+|	2021-01-26 	|	      monday  	|	TRUE	|	 4247.745 | 3730.885 | 4836.208	  |	2794	|	6229	|	  FALSE 	|	        normal	|
+|	2021-01-27 	|	rest_of_week  	|	TRUE	|	 4333.346 | 3782.713 | 4964.132	  |	2870	|	6294	|	  FALSE 	|	        normal	|
+|	2021-01-28 	|	rest_of_week  	|	TRUE	|	 4420.672 | 3834.169 | 5096.891	  |	2809	|	6532	|	  FALSE 	|	        normal	|
+|	2021-01-29 	|	rest_of_week  	|	TRUE	|	  4509.758 | 3885.361 | 5234.497	  |	2940	|	6532	|	  FALSE 	|	        normal	|
 |
 
 
@@ -200,7 +200,7 @@ res_overall$results
 |	2020-11-11 	|	rest_of_week 	|	1968	|	    TRUE 	|	1902.562	|	1780.5256	|	2032.962	|	1215		|	2712	|	FALSE 	|	normal	|
 |	2020-11-12 	|	rest_of_week 	|	2235	|	    TRUE 	|	1918.329	|	1796.7780	|	2048.104	|	1238		|	2744	|	FALSE 	|	normal	|
 |	2020-11-13 	|	rest_of_week 	|	1728	|	    TRUE 	|	1934.228	|	1813.1450	|	2063.397	|	1246		|	2727	|	FALSE 	|	normal	|
-|	2020-11-14 	|	     weekend 	|	2228	|	    TRUE 	|	1302.487	|	1197.7750	|	1416.353	|	832			|	1871	|	 TRUE 	|	crease	|
+|	2020-11-14 	|	     weekend 	|	2228	|	    TRUE 	|	1302.487	|	1197.7750	|	1416.353	|	832			|	1871	|	 TRUE 	|	increase	|
 |	2020-11-15 	|	     weekend 	|	995	  |	    TRUE 	|	1313.282	|	1208.3765	|	1427.294	|	829			|	1884	|	FALSE 	|	normal	|
 |	2020-11-16 	|	      monday 	|	1281	|	    TRUE 	|	1272.167	|	1136.0234	|	1424.626	|	801			|	1845	|	FALSE 	|	normal	|
 |	2020-11-17 	|	rest_of_week 	|	1584	|	    TRUE 	|	1999.150	|	1879.7404	|	2126.146	|	1295		|	2905	|	FALSE 	|	normal	|
@@ -229,7 +229,7 @@ res_overall$results
 |	2020-12-10 	|	rest_of_week 	|	2278	|	    TRUE 	|	2417.063	|	2293.5275	|	2547.253	|	1530		|	3472	|	FALSE 	|	normal	|
 |	2020-12-11 	|	rest_of_week 	|	1962	|	    TRUE 	|	2437.095	|	2312.5297	|	2568.370	|	1541		|	3526	|	FALSE 	|	normal	|
 |	2020-12-12 	|	     weekend 	|	1935	|	    TRUE 	|	1641.112	|	1520.3201	|	1771.501	|	1075		|	2394	|	FALSE 	|	normal	|
-|	2020-12-13 	|	     weekend 	|	1014	|	    TRUE 	|	1654.713	|	1532.7908	|	1786.333	|	1045		|	2380	|	 TRUE 	|	crease	|
+|	2020-12-13 	|	     weekend 	|	1014	|	    TRUE 	|	1654.713	|	1532.7908	|	1786.333	|	1045		|	2380	|	 TRUE 	|	decrease	|
 |	2020-12-14 	|	      monday 	|	1650	|	    TRUE 	|	1602.909	|	1438.6739	|	1785.893	|	1028		|	2316	|	FALSE 	|	normal	|
 |	2020-12-15 	|	rest_of_week 	|	2464	|	    TRUE 	|	2518.896	|	2389.2653	|	2655.561	|	1645		|	3592	|	FALSE 	|	normal	|
 |	2020-12-16 	|	rest_of_week 	|	2246	|	    TRUE 	|	2539.772	|	2408.6291	|	2678.056	|	1639		|	3659	|	FALSE 	|	normal	|
@@ -242,21 +242,21 @@ res_overall$results
 |	2020-12-23 	|	rest_of_week 	|	2413	|	    TRUE 	|	2690.828	|	2546.2149	|	2843.655	|	1752		|	3822	|	FALSE 	|	normal	|
 |	2020-12-24 	|	rest_of_week 	|	2264	|	    TRUE 	|	2713.129	|	2566.1700	|	2868.504	|	1781		|	3949	|	FALSE 	|	normal	|
 |	2020-12-25 	|	rest_of_week 	|	1814	|	    TRUE 	|	2735.614	|	2586.2033	|	2893.657	|	1756		|	3919	|	FALSE 	|	normal	|
-|	2020-12-26 	|	     weekend 	|	1102	|	    TRUE 	|	1842.132	|	1700.8125	|	1995.193	|	1158		|	2679	|	 TRUE 	|	crease	|
+|	2020-12-26 	|	     weekend 	|	1102	|	    TRUE 	|	1842.132	|	1700.8125	|	1995.193	|	1158		|	2679	|	 TRUE 	|	decrease	|
 |	2020-12-27 	|	     weekend 	|	1371	|	    TRUE 	|	1857.399	|	1714.2013	|	2012.558	|	1182		|	2676	|	FALSE 	|	normal	|
 |	2020-12-28 	|	      monday 	|	1695	|	    TRUE 	|	1799.249	|	1610.8255	|	2009.713	|	1164		|	2573	|	FALSE 	|	normal	|
 |	2020-12-29 	|	rest_of_week 	|	2939	|	    TRUE 	|	2827.436	|	2667.1481	|	2997.356	|	1830		|	4002	|	FALSE 	|	normal	|
 |	2020-12-30 	|	rest_of_week 	|	3018	|	    TRUE 	|	2850.868	|	2687.5952	|	3024.061	|	1790		|	4054	|	FALSE 	|	normal	|
 |	2020-12-31 	|	rest_of_week 	|	2839	|	    TRUE 	|	2874.496	|	2708.1302	|	3051.081	|	1864		|	4061	|	FALSE 	|	normal	|
-|	2021-01-01 	|	rest_of_week 	|	1727	|	    TRUE 	|	2898.318	|	2728.7549	|	3078.419	|	1822		|	4173	|	 TRUE 	|	crease	|
-|	2021-01-02 	|	     weekend 	|	1249	|	    TRUE 	|	1951.695	|	1795.9908	|	2120.897	|	1290		|	2789	|	 TRUE 	|	crease	|
+|	2021-01-01 	|	rest_of_week 	|	1727	|	    TRUE 	|	2898.318	|	2728.7549	|	3078.419	|	1822		|	4173	|	 TRUE 	|	decrease	|
+|	2021-01-02 	|	     weekend 	|	1249	|	    TRUE 	|	1951.695	|	1795.9908	|	2120.897	|	1290		|	2789	|	 TRUE 	|	decrease	|
 |	2021-01-03 	|	     weekend 	|	1297	|	    TRUE 	|	1967.870	|	1809.8711	|	2139.661	|	1237	|	2815	|	FALSE 	|	normal	|
 |	2021-01-04 	|	      monday 	|	1910	|	    TRUE 	|	1906.261	|	1702.4039	|	2134.530	|	1179	|	2773	|	FALSE 	|	normal	|
 |	2021-01-05 	|	rest_of_week 	|	2949	|	    TRUE 	|	2995.601	|	2812.1886	|	3190.975	|	1945	|	4352	|	FALSE |	normal	|
 |	2021-01-06 	|	rest_of_week 	|	3353	|	    TRUE 	|	3020.427	|	2833.2905	|	3219.924	|	1921	|	4303	|	FALSE 	|	normal	|
 |	2021-01-07 	|	rest_of_week 	|	3475	|	    TRUE 	|	3045.460	|	2854.4939	|	3249.201	|	1942	|	4354	|	FALSE	|	normal	|
 |	2021-01-08 	|	rest_of_week 	|	3042	|	    TRUE 	|	3070.699	|	2875.8007	|	3278.807	|	1930	|	4462	|	FALSE |	normal	|
-|	2021-01-09 	|	     weekend 	|	3146	|	    TRUE 	|	2067.774	|	1894.7098	|	2256.646	|	1321	|	2939	|	 TRUE |	crease	|
+|	2021-01-09 	|	     weekend 	|	3146	|	    TRUE 	|	2067.774	|	1894.7098	|	2256.646	|	1321	|	2939	|	 TRUE |	increase	|
 |	2021-01-10 	|	     weekend 	|	1662	|	    TRUE 	|	2084.911	|	1909.1164	|	2276.893	|	1334	|	3049	|	FALSE |	normal	|
 |	2021-01-11 	|	      monday 	|	2213	|	    TRUE 	|	2019.639	|	1797.8427	|	2268.797	|	1263	|	2954	|	FALSE |	normal	|
 |	2021-01-12 	|	rest_of_week 	|	3375	|	    TRUE 	|	3173.768	|	2962.1019	|	3400.559	|	2043	|	4662	|	FALSE |	normal	|
@@ -270,7 +270,7 @@ res_overall$results
 |	2021-01-20 	|	rest_of_week 	|	4123	|	    TRUE 	|	3390.399	|	3140.2694	|	3660.452	|	2209	|	4928	|	FALSE |	normal	|
 |	2021-01-21 	|	rest_of_week 	|	4151	|	    TRUE 	|	3418.497	|	3163.0995	|	3694.517	|	2214	|	4821	|	FALSE |	normal	|
 |	2021-01-22 	|	rest_of_week 	|	3847	|	    TRUE 	|	3446.829	|	3186.0600	|	3728.941	|	2223	|	5015	|	FALSE |	normal	|
-|	2021-01-23 	|	     weekend 	|	3593	|	    TRUE 	|	2321.055	|	2103.8608	|	2560.672	|	1488	|	3375	|	 TRUE |	crease	|
+|	2021-01-23 	|	     weekend 	|	3593	|	    TRUE 	|	2321.055	|	2103.8608	|	2560.672	|	1488	|	3375	|	 TRUE |	increase	|
 |	2021-01-24 	|	     weekend 	|	2269	|	    TRUE 	|	2340.291	|	2119.4468	|	2584.148	|	1442	|	3347	|	FALSE	|	normal	|
 |	2021-01-25 	|	      monday 	|	2231	|	    TRUE 	|	2267.024	|	2001.0660	|	2568.330	|	1423	|	3313	|	FALSE	|	normal	|
 |	2021-01-26 	|	rest_of_week 	|	4413	|	    TRUE 	|	3562.522	|	3279.2427	|	3870.272	|	2248	|	5189	|	FALSE	|	normal	|
