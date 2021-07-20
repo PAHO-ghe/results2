@@ -98,7 +98,7 @@ res_overall$fitted_model
 ``` r
 res_overall$results
 ```
-|	  date  	|	    day    	  |	 training	|	 estimate | lower_ci | upper_ci	|	lower_pi 	|	upper_pi 	|	outlier 	|	classification	|
+|	date | day | training	| estimate | lower_ci | upper_ci	|	lower_pi | upper_pi |	outlier	|	classification |
 |	----------- |	-----------	|	---------	|	----------| --------|	--------	|	---------	|	---------	|	---------	|-----------------|
 |	2021-01-01 	|	 weekday count	|	TRUE	|	  2579.499| 2189.247 |3039.317	|	1642	|	3755	|	  FALSE 	|	        normal	|
 |	2021-01-02 	|	rest_of_week  	|	TRUE	|	  1783.453| 1504.439| 2114.213	|	1120	|	2529	|	  FALSE 	|	        normal	|
